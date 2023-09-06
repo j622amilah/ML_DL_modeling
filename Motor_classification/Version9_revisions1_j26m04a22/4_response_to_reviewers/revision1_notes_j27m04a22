@@ -1,0 +1,63 @@
+-----------------------------------------
+Paper Revisions
+-----------------------------------------
+
+https://ieee.atyponrex.com/journal/ieee-access
+
+
+------------------------
+To do:
+------------------------
+- check if it is single or double space between sentences
+
+------------------------
+Reviewer: 1
+------------------------
+
+* Fore mostly, I would suggest authors to consider a thorough formatting correction to improve the overall readability of the article. For instance, Second paragraph of Experimental design section is out of order in terms of its formatting. Please check.
+
+
+The ordering of the  Experimental design section follows typical organization of introducing the experimental parameters which included axis motion, axis direction, and speed (sub, sup) in the first paragraph. The second paragraph describes the organization of a single trial in its' individual components, discussing the phases in detail.
+
+The third paragraph summarizes the trial organization using Figure 2A and 2B. We believed that the reader would not understand the 3rd summary paragraph if we put it before the 2nd paragraph where the individual trial components were discussed. 
+
+We have combined the contents of the third paragraph into the second paragraph, such that the information is introduced in a clearer manner.  
+
+The fourth paragraph, which is now the first paragraph, states the total number of specific stimuli trials over the entire experiment.
+
+
+* Consider to follow IEEE Access reference style. List all references numerically in the order they've been cited within the paper. For instance, check the citation order in line 2 of second column in page one. It seem to be not matching the style here. ([2],[3],[4],[1],[5],[6]).
+
+
+
+* I would suggest authors to revisit ﬁgure captions and use it eﬀectively. (long captions shall be avoided wherever applicable)
+
+
+* I would suggest authors to use larger image for Figure 3. (for better visual from readers perspective)
+
+
+Please check equation 1. Seems like an image. Please follow the journal template to add equations.
+
+
+*The conclusion section seem to be extremely lengthy. I would suggest authors consider a discussion section to highlight the ﬁndings and list out the advantages of the study made in this article. Also indicated the limitations of this study followed by conclusion.
+
+
+2) Is the paper technically sound?: Partially Yes. This paper presents a study of an in ﬂight piloting use case experiment and ML model prediction.
+
+
+
+3) Is the subject matter presented in a comprehensive manner?: Partially Yes. Although paper is presented in a easy-to-read manner, there are some concerns with respect to presentation style
+(lengthy paragraphs) and format.
+
+
+
+4) Are the references provided applicable and suﬃcient?: Superﬁcially yes. However, Recent times milestone paper seems to be missing in the reference list. I would suggest authors consider latest publications on similar grounds.
+
+
+
+------------------------
+Reviewer: 2
+------------------------
+
+
+

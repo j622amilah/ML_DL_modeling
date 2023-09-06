@@ -1,0 +1,41 @@
+---------------------------------
+Git : push files in a folder from the PC to my GitHub account
+---------------------------------
+Set the remote repository (github repository) that you want to push and pull to/from
+git config --global remote.origin.url https://github.com/j622amilah/Motor_classification/test.git
+
+git config --global remote.origin.url https://github.com/j622amilah/Motor_classification.git
+
+OR
+
+git remote add origin https://github.com/j622amilah/Motor_classification/test.git
+
+
+
+
+1) Go to folder of the files that you want to upload
+cd C:\Users\jamilah\Documents\Github_analysis_PROJECTS\Motor_classification\test
+
+2) Initialize the local directory as a Git repository
+git init -b main
+
+3) Add Local repository : called 'Stage and commit all the files in your project'
+git add .     (if you want to add everything in the local repository)
+
+OR
+
+git add foldername       (if you want to add a folder from the local repository)
+
+
+4) Commit repository
+git commit -m "write a message to describe the files you are committing"
+
+5) Push the changes in your local repository to the remote repositor
+git push origin master
+
+If you use -u in the command, it will remember your preferences for remote and branch and you can simply use the command git push next time.  git push -u origin master
+
+6) Pull Repository from github
+git pull origin master
+
+---------------------------------

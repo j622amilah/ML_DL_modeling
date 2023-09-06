@@ -1,0 +1,169 @@
+Standard (STEP 1) - Epoch the signal into 10 sec chunks
+Standard (STEP 2) - Choose a threshold
+Standard (STEP 3) - Select cells based on threshold
+Standard (STEP 4) - Filter: Bandpass filter the data to remove frequencies greater than 40 Hz and lower than 1Hz
+Standard (STEP 5) - Transform data from epochs to channels
+DAD (STEP 0) - Filter: Bandpass filter the data to remove frequencies greater than 50 Hz and lower than 1Hz
+The entire dataset will be evaluated before epochs...
+(STEP c1) - Calculate the variance of each channel
+	1.44	
+	0.55	
+	-0.35	
+	-1.64	
+	0.88	
+	0.35	
+	-0.90	
+	-0.34	
+(STEP c2) - Calculate the median of each channel
+	-0.52	
+	0.08	
+	-0.33	
+	0.85	
+	0.90	
+	-1.57	
+	-0.81	
+	1.40	
+(STEP c5) - Calculate the Hurst exponent of each channel
+	1.92	
+	0.57	
+	-0.42	
+	0.09	
+	-1.44	
+	-0.56	
+	-0.54	
+	0.38	
+(STEP c6) - Calculate the Frequency Power of each channel
+(STEP c6a) - Calculate the Frequency Power (delta: 0-3) of each channel
+	1.34	
+	0.09	
+	-0.29	
+	-0.71	
+	-0.54	
+	-1.00	
+	-0.61	
+	1.72	
+(STEP c6b) - Calculate the Frequency Power (theta: 4-7) of each channel
+	0.17	
+	0.62	
+	-0.12	
+	-1.08	
+	-0.39	
+	-0.74	
+	-0.55	
+	2.10	
+(STEP c6c) - Calculate the Frequency Power (alpha: 8-15) of each channel
+	-1.38	
+	-0.28	
+	-0.29	
+	-0.90	
+	0.63	
+	0.83	
+	-0.31	
+	1.72	
+(STEP c6d) - Calculate the Frequency Power (beta: 16-31) of each channel
+	-1.58	
+	-0.64	
+	-0.07	
+	-0.83	
+	1.36	
+	0.76	
+	0.01	
+	0.99	
+(STEP c6e) - Calculate the Frequency Power (gamma: 32-49) of each channel
+	-1.52	
+	-0.68	
+	0.22	
+	-1.08	
+	1.36	
+	0.41	
+	0.38	
+	0.93	
+Channel evaluation is COMPLETE...
+DAD (STEP 0) - Filter: Bandpass filter the data to remove frequencies greater than 50 Hz and lower than 1Hz
+Channels will be evaluated before epochs...
+(STEP e1) - Epoch each channel (cut the data in each channel every 10 seconds)
+(STEP e2) - Baseline correct - zero mean the data
+Prevent detection bias: test the SNR of the data to determine which type of "good" datasets to use
+(STEP e3) - Variance within epoch
+(STEP e4) - Calculate the Hurst exponent within epoch
+(STEP e5) - Calculate the Frequency Power of each epoch
+(STEP e5a) - Calculate the Frequency Power (delta: 1-3) of each epoch
+(STEP e5b) - Calculate the Frequency Power (theta: 4-7) of each epoch
+(STEP e5c) - Calculate the Frequency Power (alpha: 8-15) of each epoch
+(STEP e5d) - Calculate the Frequency Power (beta: 16-31) of each epoch
+(STEP e5e) - Calculate the Frequency Power (gamma: 32-49) of each epoch
+(STEP e6) - Peak within epoch
+NumOfsampledCHs: 1| 
+variance: 
+hurst exponent: .6..7..9..14..15..84..92.
+freq delta 1-3Hz: .83..86..91.
+freq theta 4-7Hz: .4..5..8..11..12..13..21..81..82..85..88..89..98..100.
+freq alpha 8-15Hz: .82..88.
+freq beta 16-31Hz: .5..10..16..19..21..22..93..96..97.
+freq gamma 32-49Hz: .10..16..18..19..22..29..87..93..95..96..99.
+
+NumOfsampledCHs: 2| 
+variance: 
+hurst exponent: .11..60..70..71.
+freq delta 1-3Hz: .15.
+freq theta 4-7Hz: .4..9..14..50..54..61..92..95..97..99..104.
+freq alpha 8-15Hz: .5..54..63..93..94..96.
+freq beta 16-31Hz: .10..15..16..59..67..98..102.
+freq gamma 32-49Hz: .2..5..8..10..16..20..51..57..58..59..62..66..89..93..96..98..102..103..108.
+
+NumOfsampledCHs: 3| 
+variance: 
+hurst exponent: .29..34.
+freq delta 1-3Hz: .58..93..99.
+freq theta 4-7Hz: .8..56..89..90..91..92..97..98.
+freq alpha 8-15Hz: .9..56..58..89..91.
+freq beta 16-31Hz: .104..106..107..109..110..111..114..118.
+freq gamma 32-49Hz: .9..10..31..32..36..57..102..103..104..105..106..107..108..109..110..111..114..116..117..118..119.
+
+NumOfsampledCHs: 4| 
+variance: .16..45.
+hurst exponent: .106.
+freq delta 1-3Hz: .50..81..82..94..103..104..105..118.
+freq theta 4-7Hz: .51..52..54..55..56..99..100..120.
+freq alpha 8-15Hz: .16..28..45..51..106..115.
+freq beta 16-31Hz: .8..72.
+freq gamma 32-49Hz: .7..8..14..47..48..49..66..67..68..69..71..72..73..74..75..79.
+
+NumOfsampledCHs: 5| 
+variance: .119.
+hurst exponent: .6..10..11..34..36..37..42..44..45..73..74..75..98.
+freq delta 1-3Hz: .7..9..70..86.
+freq theta 4-7Hz: .2..3..8..38..39..69..96..99.
+freq alpha 8-15Hz: .98..115..119.
+freq beta 16-31Hz: .1..63..64..65..66..67.
+freq gamma 32-49Hz: .4..5..40..41..43..61..62..63..64..65..66..67..76..77..78..80..81..100.
+
+NumOfsampledCHs: 6| 
+variance: .54.
+hurst exponent: .36..77..78.
+freq delta 1-3Hz: .13..28..50..71..106.
+freq theta 4-7Hz: .8..29..39..80..104..105.
+freq alpha 8-15Hz: .50..53..73..98.
+freq beta 16-31Hz: .1..55..56..57..58..67..68..76.
+freq gamma 32-49Hz: .1..55..56..57..58..59..66..67..68..69..75..76..94..95..97.
+
+NumOfsampledCHs: 7| 
+variance: 
+hurst exponent: .22..39..65..109.
+freq delta 1-3Hz: .2..11..115.
+freq theta 4-7Hz: .1..13..72..75..79.
+freq alpha 8-15Hz: .1..3..72..97.
+freq beta 16-31Hz: .4..5..9..10..67..68..69..78..87..108..109.
+freq gamma 32-49Hz: .3..4..5..6..7..8..9..10..12..67..68..69..77..78..86..87..108.
+
+NumOfsampledCHs: 8| 
+variance: .16..45.
+hurst exponent: .106..170..190..197..340.
+freq delta 1-3Hz: .50..81..82..94..103..104..105..118..143..155..160..166..171..172..173..278..343..354.
+freq theta 4-7Hz: .51..52..54..55..56..99..100..120..169..194..195..196..214..215..216..219..220..248..351.
+freq alpha 8-15Hz: .16..28..45..51..106..115..123..195..196..216..274..275..333..355.
+freq beta 16-31Hz: .8..72..199..207..230..289..299..341..361..362..364.
+freq gamma 32-49Hz: .7..8..14..47..48..49..66..67..68..69..71..72..73..74..75..79..152..153..156..161..162..163..164..175..198..199..201..203..205..207..209..210..224..226..227..228..229..230..241..289..290..291..295..298..299..304..341..355..356..357..360..361..362..363..364.
+
+Epoch evaluation is COMPLETE...
+DAD epoch - Transform data from epochs to channels

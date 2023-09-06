@@ -1,0 +1,130 @@
+Hi Benoit,
+
+After thinking about how to respond to reviewer 2 for a few days, I thought it best to ask the Editor on how we should respond to the concerns of reviewer 2. As I mentioned in my previous email, I do not think that they completely understood the focus of the paper and the statistical analysis result. I do not want to take the chance that all our work gets rejected again, based on misunderstandings and perhaps maybe my poor/inadequate response. As stated on the website, we only get one chance to revise the paper. If they don't like this new revision they reject the paper. And the job of the Editor is to moderate situations like this, ensuring that the judging of the reviews are just and fair without misunderstanding on both sides. 
+
+I wrote a letter to the Editor explaining the situation and asking for more clarification on how to respond. What do you think about the letter and the idea of contacting the Editor for more clarity?
+
+All the best,
+Jamilah 
+
+
+
+
+
+-------------------------------------------
+Version 1
+-------------------------------------------
+Hello Dr. Khanum,
+
+Thank you for your time in reviewing our paper submission. We would normally respond to the reviewers comments without contacting the Editor, however we believe that the paper may be misjudged incorrectly in the final revision if we do not ask for more clarification on how to respond to some of the concerns.
+
+We are concerned about the second reviewers comments and are unsure about how to respond such that the outcome would be just.  Her/His main comment shows that she/he did not understand the analysis about physical disorientation and motion detection. The analysis consisted of statistical analysis of the correlation of physical disorientation questionnaire measures and joystick measures. The result "no significant relationship between physical disorientation and motion detection was found", is based on statistical analysis and has nothing to do with Machine Learning (ML) modeling. It appears that the reviewer is focusing on new cutting-edge technical methods like Deep-learning and IMU activity tracking, instead of focusing on the scientific contribution of the paper which is the prediction of SD in a practical aviation setting and SD dataset creation. It appears that reviewer 2 has a lot of experience in the field of Data Science, thus she/he may belive that our work is 'old, repetative' in terms of Data Science scientific publication because we only used 7 scikit-learn ML and 1 classical multi-layer perceptron model which is the base model for Deep Learning. We understand that reviewer 2 is trying to offer help to make the paper more scientifically state-of-the-art for Data Science literature. And, we greatly appreciate that the reviewer is suggesting these cutting-edge methods.  
+
+However we are afraid that reviewer 2 may not see, even after we follow what she/he advises us to do, that our focus is on the multi-disciplinary aspect of combining Data Science tools and modern psychophysical motion detection experimentation with a problem situation in the aviation industry. We were motivated to publish this topic with IEEE Access, because a 2020 paper titled 'A Classification Method for Unrecognized Spatial Disorientation Based on Perceptual Process' was published on the topic of SD (see attached); this paper does not have any experimental scientific data or modeling however it discusses the theme of SD. We believed that there was an audience of readers that were interested in SD at IEEE Access, and readers might be interested in a psychophysical and ML modeling perspective in addition to a neuroscience persective that was given in the paper. The goal of this paper is to contribute to the need for updating experimental and modeling approaches for SD in industrial aviation; to encourage researchers in aviation to adopt novel scientific methods while promoting sharing and problem solving of industrial problems from an academic/scientific perspective. There are very few papers discussing SD and motion detection in aviation with respect to modern psychophysical experimentation, using modern modeling methods other than control theory. Old ideas that were published from 1960-2000 by known scientists in the field like Benson and Gibson were based on conventional physiological thresholds and control theory, have not been reintegrated with newer scientific ideas in psychophysical whole-body motion detection. And a large body of scientific work on SD for aviation is not discussed in multi-disciplinary psychophysical journals, yet the research is multi-disciplinary covering the fields of whole-body motion detection, psychology/physiology, signal processing, control theory, and most recently virtual reality (VR) and artificial intelligence.
+
+In your expert opinion, should the main concern of reviewer 2 regarding the lack of Deep Learning be a focus for the revisions for reviewer 2, especially when reviewer 2 may not have misunderstood the original analysis? 
+
+Both reviewers believe that the work is scientifically sound and important, and already the paper is long with many varying topics weaved together: explainations of SD from an industrial aviation perspective, two psychophysical experiments with VR and robotic motion simulation, rigourous data processing pipeline, statistically proving of data with respect to the modern psychophysical motion detection literature, model parameter tuning using ML and a classical Deep Learning model. We believe that adding a rigorous Deep Learning analysis and citing IMU sensor literature that we did not use would distract from the main goal of the work.
+
+Would re-describing the focus of the paper as I have done above in this email and mentioning a few sentences about advanced Deep learning techniques like Transformers or CNN and future usage of IMU sensors in the conclusion section be sufficient in response to reviewer 2's comments? We believe that the topics of the paper are state-of-the-art in terms of the multi-disciplinary aspects and that we have targeted the correct journal for this topic because of the previously published paper 'A Classification Method for Unrecognized Spatial Disorientation Based on Perceptual Process'.
+
+We hope that our concerns were stated clearly and succently, and we are not objecting to reviewer 2's comments and concerns. We thought that the revision process would be more fair if we explained our concerns and asked for more clarification on how to best respond. We believe that the concerns of reviewer 2 were serious and may jeopeodize our chances of success; the website states that rejected submissions with update requests are only permitted to be resubmitted once and all concerns and criticisms must be properly addressed (https://ieeeaccess.ieee.org/guide-for-authors/stages-of-peer-review/). Any advise and your professional opinion on how to respond would be greatly appreciated. 
+
+
+
+-------------------------------------------
+Version 2
+-------------------------------------------
+Hello Dr. Khanum,
+
+Thank you for your time in reviewing our paper submission. We would normally respond to the reviewer's comments without contacting the Editor, however it is unclear how to incorporate the major comment and concern of reviewer 2. We are concerned that if we responded to these inaccuracies normally in our paper revision, we may have less opportunity for publication success than if we discussed these concerns with a neutral party before submitting the revision to help us to reconfirm and interpret how to best respond. We thought that it was best to explain our view-point with respect to reviewer 2's major concern, such that we can better understand how to update the paper. 
+
+Reviewer 2's major concern implies that she/he believes that we used the physical disorientation and motion detection performance measures as features for an ML model, because she/he recommends using Deep Learning to improve the relationship between the measures.  However, in the paper we state that we only use transformations of joystick sensor data as features for ML and DL models (see section III.ANALYSIS D. CLASSIFICATION MODELS, FEATURE & LABEL CREATION), and the motion detection performance measures are model labels; physical disorientation measures are not used for modeling.  This paper only states that we investigated physical disorientation as a potential feature/marker for future ML/DL modeling. We used a conventional questionnaire to measure a physical disorientation score called SSQ disorientation, we used a questionnaire to measure physical disorientation because questionnaires are commonly used in the aviation industry for monitoring SD. 
+
+The physical disorientation measure consists of two scalar values per participant, obtained by a questionnaire before and after the whole-body experiment. Motion detection performance categories from 1 to 10, were assigned per trial per participant, as shown in Figure 4. For each participant, we counted the number of times they achieved a certain category across trials and calculated the mean trial counts across participant performance for each physical disorientation questionnaire and response category. We compared motion performance means across participants per two negative and positive physical disorientation questionnaire categories using statistical analysis to determine if it could be a potential feature; negative and positive implied feeling worst and better over the course of the experiment.  
+
+We found that the a similar number of IC good performers felt similarly good and worst over the course of the task, thus feeling sick is not related to performing well. Additionally, a greater number of EC and NC performers felt worst over the course of the task than those who felt better, the difference was not significant. However, it shows that participants who performed motion dection poorly also were more likely to feel sick, but the measurement method using the questionnaire does not offer enough data points to statistically confirm this relationship. We were interested in statistically showing if a physical disorientation measure related to the ability to detect motion, it would be a viable future ML/DL modeling feature for SD prediction. Again, no ML modeling was used with the physical disorientation measure.  
+
+Since reviewer 2 is advising us on a situtation that does not exist or that is not true, how do we address his/her major concern in the revision? Should we also respond to his/her other minor comments as well?
+ 
+We thought that the revision process would be more fair if we explained our concerns and asked for more clarification on how to best respond. We believe that the concerns of reviewer 2 were serious and may jeopeodize our chances of success; the website states that rejected submissions with update requests are only permitted to be resubmitted once and all concerns and criticisms must be properly addressed (https://ieeeaccess.ieee.org/guide-for-authors/stages-of-peer-review/). Any advise and your professional opinion on how to respond would be greatly appreciated. 
+ 
+-------------------------------------------
+ 
+Below are copied excerpt from both reviewer 2 and the paper about the physical disorientation and motion detection result.
+
+1) Reviewer 2's main concern: Given only traditional ML model was applied, the conclusion "no significant relationship between physical disorientation and motion detection was found." might be true. However, what about some deep learning model? I don't think the 2-layer NN mentioned in the paper should be identified as a deep model. I think the discussion of deep learning models will be helpful. If not, deep-diving into the reason why physical disorientation and motion detection is not strongly related is necessary.
+
+2) Citations from the paper supporting the description of the physical disorientation analysis: On page 9, we describe the physical disorientation questionnaire measure and how it was compared with motion detection performance.  "Physical disorientation for accurate and non-accurate motion detection performers were compared, to quantify whether physical disorientation report could also be a marker for SD, like the perceptual joystick. Again, Wilcoxon signed-rank or rank-sum non-parametric distribution tests were used to evaluate comparisons, as the KS test only found non-parametric distributions. The mentioned statistical p-value reporting convention was used."
+
+On page 14 under subsection 'D. Motion Detection Performance and Physical Disorientation' of the submitted manuscript, we dedicate a short sub-section to explain the statistical comparison between physical disorientation and motion detection performance. 
+
+Finally on page 16 in the last paragraph, we discuss why there may not have been a significant relationship between physical disorientation and motion detection. We state that "More sample points regarding physical disorientation are needed during the experiment, instead of a sample before and after the task, in order to determine if physical disorientation is correlated with motion detection....We do not claim that questionnaire methods can not quantify SD, however before and after questionnaire samples may not produce enough data to find statistically significant correlations with other SD measures especially when population sample size is small. A physiological sampling measure that implies physical discomfort, with a sampling rate comparable to that of the joystick, such as EEG, NIRS, heart rate, or electrodermal activity, could provide more insight into correlations with physical and perceptual disorientation."
+
+
+
+
+-------------------------------------------
+Version 3
+-------------------------------------------
+March 3, 2022
+
+
+
+
+Jamilah Foucher and Benoît Bardy
+EuroMov Digital Health in Motion
+University of Montpellier
+700 Av. Pic Saint Loup
+34090 Montpellier, France
+
+
+Dr. Khanum,
+
+Thank you for your time in reviewing our paper submission. We would normally respond to the reviewer's comments without contacting the Editor, however it is unclear how to incorporate the major concern of reviewer 2. We believe that there are inaccuracies in reviewer 2's main concern and we are worried that if we responded to these inaccuracies normally in our paper revision, we may have less opportunity for publication success than if we discussed these concerns with a neutral party (before submitting the revision) to help us to reconfirm and interpret how to best respond.
+
+Reviewer 2's major concern implies that she/he believes that we used the physical disorientation and motion detection performance measures as features for an ML model, because she/he recommends using Deep Learning to improve the relationship between the measures.  However, in the paper we state that we only use transformations of joystick sensor data as features for ML and DL models (see section III.ANALYSIS D. CLASSIFICATION MODELS, FEATURE & LABEL CREATION), and the motion detection performance measures are model labels; physical disorientation measures are not used for modeling.  This paper only states that we investigated physical disorientation as a potential feature/marker for future ML/DL modeling using statistical analysis. 
+
+We used a conventional questionnaire to measure a physical disorientation score called SSQ disorientation; we used a questionnaire to measure physical disorientation because questionnaires are commonly used in the aviation industry for monitoring SD. The physical disorientation measure consisted of two scalar values per participant, obtained by a questionnaire before and after the whole-body experiments. Motion detection performance categories from 1 to 10 were assigned per trial per participant, as shown in Figure 4. Across participants we calculated the mean of trial counts for two negative and positive physical disorientation questionnaire categories and four motion detection categories. Using statistical analysis, we compared the eight coupled physical disorientation and motion detection categories, and no statistical significance was found.
+
+We found that the a similar number of IC good performers felt similarly good and worst over the course of the task, thus good performers could perform well regardless of feeling sick or well. Additionally, a greater number of EC and NC performers felt worst over the course of the task than those who felt better, the difference was not significant. However, it showed that participants who performed motion detection poorly were also more likely to feel sick, but the measurement method using the questionnaire did not offer enough data points to statistically confirm this relationship. We were interested in statistically showing if a physical disorientation measure gave information about one’s ability to detect motion, because such a physical disorientation measure could be a viable future ML/DL modeling feature for SD prediction. Again, no ML modeling was used with the physical disorientation measure.  
+
+Since reviewer 2 is advising us on a situation that does not exist or that is not true, how do we address his/her major concern in the revision? 
+
+Additionally, reviewer 2 says that our 2-layer Neural Network (NN) model that is a Deep Learning model in the scikit-learn python toolkit is not a sufficient Deep Learning model. However, he/she does not state why the model is insufficient for their liking or how we should improve it so it will be acceptable to them in the future revision. We do not know which type of Deep Learning model would please reviewer 2. From our professional perspective, considering our modest data size, a 2 to 4 layer NN is typically used; we do not have Big Data for this dataset so a many layer 'deep' NN model was not needed. If the reviewer's advice is not clear, how do you recommend that we address his/her concern about which Deep Learning model to execute for the revision? If we select a Deep Learning model again of our choice for the 2nd revision, reviewer 2 could reject the work again based on their disapproval of the selected Deep Learning model even-though the focus of the paper is about comparing 8 predictive models/label & feature selection for Spatial Disorientation and dataset creation using psychophysical experimentation.
+ 
+Thank you for your time in hearing our concerns. We thought that the revision process would be more fair if we explained our concerns and asked for more clarification on how to best respond; we took the concerns of reviewer 2 seriously and did not want any inaccuracies to jeopardize our chances of success. Any advise and your professional opinion on how to respond would be greatly appreciated. 
+
+
+
+Sincerely,
+
+
+Jamilah Foucher & Benoît Bardy
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------
+ 
+Below are copied excerpt from both reviewer 2 and the paper about the physical disorientation and motion detection result.
+
+1) Reviewer 2's main concern: Given only traditional ML model was applied, the conclusion "no significant relationship between physical disorientation and motion detection was found." might be true. However, what about some deep learning model? I don't think the 2-layer NN mentioned in the paper should be identified as a deep model. I think the discussion of deep learning models will be helpful. If not, deep-diving into the reason why physical disorientation and motion detection is not strongly related is necessary.
+
+2) Citations from the paper supporting the description of the physical disorientation analysis: On page 9, we describe the physical disorientation questionnaire measure and how it was compared with motion detection performance.  "Physical disorientation for accurate and non-accurate motion detection performers were compared, to quantify whether physical disorientation report could also be a marker for SD, like the perceptual joystick. Again, Wilcoxon signed-rank or rank-sum non-parametric distribution tests were used to evaluate comparisons, as the KS test only found non-parametric distributions. The mentioned statistical p-value reporting convention was used."
+
+On page 14 under subsection 'D. Motion Detection Performance and Physical Disorientation' of the submitted manuscript, we dedicate a short sub-section to explain the statistical comparison between physical disorientation and motion detection performance. 
+
+Finally on page 16 in the last paragraph, we discuss why there may not have been a significant relationship between physical disorientation and motion detection. We state that "More sample points regarding physical disorientation are needed during the experiment, instead of a sample before and after the task, in order to determine if physical disorientation is correlated with motion detection....We do not claim that questionnaire methods can not quantify SD, however before and after questionnaire samples may not produce enough data to find statistically significant correlations with other SD measures especially when population sample size is small. A physiological sampling measure that implies physical discomfort, with a sampling rate comparable to that of the joystick, such as EEG, NIRS, heart rate, or electrodermal activity, could provide more insight into correlations with physical and perceptual disorientation."
+
+
+
+
+
+

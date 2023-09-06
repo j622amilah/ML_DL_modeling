@@ -1,0 +1,6 @@
+global CST
+
+CST.mystring = 'toto';
+STEPS.EEG_STEP=1;
+STEPS.ANOTHER_STEP=2;
+CST.STEPS = STEPS;

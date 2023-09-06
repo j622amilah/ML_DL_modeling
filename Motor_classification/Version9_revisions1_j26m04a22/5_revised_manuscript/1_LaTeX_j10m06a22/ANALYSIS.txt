@@ -1,0 +1,129 @@
+\section{ANALYSIS}
+As previously mentioned, the goal of this study was to create a realistic flight dataset of moments of disorientation and non-disorientation measured by joystick motion, and then identify the best methods to predict SD using ML and DL methods. The analysis methodologies were as follows: 1) verifying the correctness and authenticity of the dataset, 2) evaluating ML and DL modeling parameters for SD classification using three metrics, and 3) statistically correlating physical with perceptual disorientation to confirm whether other possible measures besides joystick could convey markers for the occurrence of human SD-state. Python was used for all analyses, using numpy, pandas, scipy, pywt, tensorflow, scikit-learn, seaborn, plotly, and matplotlib (Python 3.9, Python Software Foundation, Fredericksburg, Virginia, USA).
+
+\subsection{VERIFICATION OF SIMULATION DATASET}
+\label{VERIFICATION_OF_SIMULATION_DATASET}
+All trials, familiarization and experimental trials, were used in data analysis to maximize data usage. The simulator system motion and participant joystick responses were down-sampled from 250 Hz to 10 Hz for data analyses, such that only relevant human motor movements were considered; literature has shown that human hand and arm movements do not exceed frequencies of 10 Hz \cite{Shadmehr_2004_Computational}.
+
+\indent Data standardization pre-processing analysis was performed to ensure that the data was collected properly. Data standardization consisted of two-steps: 1) numerical confirmation of experimental settings, and 2) numerical confirmation of the experimental design. In the first step, four items were checked for correctness using both joystick and cabin motion data: experimental event matrix per trial, joystick and cabin directional control convention, joystick margin needed to command cabin motion, and start-stop time of phases A and B per trial. In the second step, the motion and timing of the cabin with respect to joystick motion was checked for correctness. The robotic simulator performed motion stimulation in real time using a real-time Linux kernel, with a MATLAB/Simulink input layer, to capture responses with minimal delay. Despite the advantage of rapid response synchrony, real-time systems are prone to having system delays that can influence functional timing and communication between tasks; real-time functioning refers to the order in which numerical tasks are executed using the available computer resources. Therefore, the rotational and translational experiments had trials where system delays imperceptibly influenced the robotic trajectory and/or the participant's ability to respond correctly via the joystick. Due to these slight processing and thus execution errors that are due to the real-time functionality of the motion simulator, it was necessary to remove all trials that had frequency or joystick-cabin related defects such that experimental defects were not confounded with participant response. The following defects were checked in the second step of data standardization:
+\begin{itemize}
+\item temporal gaps in data,
+\item trials where phases A and/or B were shorter than the minimal expected trial length of 17s, denoting the system sampling frequency was faster than desired,
+\item trials where joystick motion was sufficient but the cabin insufficiently moved,
+\item delays longer than 5s between joystick and cabin movement.
+\end{itemize}
+
+\indent The majority of trials that were removed were due to fast or slow system frequency sampling rates, thus discarding trials that had recorded timestamps less or more than 17 s or 50s respectively. The second reason for discarding trials was due to the fact that the cabin did not respond within a few seconds after joystick movement, or the cabin motion axes and direction was incorrect with respect to joystick motion. In total, 40\% of rotational and 50\% of translational trial data was removed from the analysis. Errors were expected as the system was a new experimental test platform where many computers needed to operate in synchrony. Data standardization was the only step that removed trial data, trials that passed data standardization were used in data analysis.
+
+\subsection{RESPONSE CATEGORIZATION}
+Detection of correct stimuli was categorized into ten possible categories based on the selection of axis and axial direction. Figure \ref{fig4} depicts a flowchart and possible participant choices based on response movements. The blue squares indicate the experimental trial type: the presence of motion stimuli denoted by ``Movement" and no presence of motion stimuli denoted by “Sham". For “Movement" activity, the green squares indicate participant response activity such that “1-3 axes” means that the participant moved the joystick on one or more axes and “No axes" means that the participant did not move the joystick. The yellow diamonds denote the decision process based on the question asked within the diamond. For example, for “Movement" activity where the participant responded using one or more joystick movements, the following question is posed: “Is the stimulus axis the same as the axis in which the participant initially moved the joystick?”. If yes, the axis was noted as correct, and the initial direction was confirmed in a similar manner. For example, “Did the participant initially move in the opposite direction of the stimulus direction?”. The red numbers indicate the total number of possible categories based on the logical progression of performing the task correctly, first finding the correct axis and then finding the correct direction to counteract the vestibular stimulus.
+
+% -------------------- Figure 4 --------------------
+\begin{figure}[htp]
+\begin{center}
+\includegraphics[width=1.0\linewidth]{figures/figure4_2.eps}
+\end{center}
+\caption{Flowchart of selection process for detection performance categories, where correct response categories 1, 2, 4, and 5 denote non-SD occurrence and wrong response categories 3, 6, 7, and 9 denote SD occurrence.}
+\label{fig4}
+\end{figure}
+% --------------------
+The ten detection performance categories were reduced to four categories:
+\begin{itemize}
+\item Initially Correct axis and direction: trials in which the first response was with the correct axis and direction (IC: Category 1)
+\item Eventually Correct axis or direction: trials where the first response was with an incorrect axis or direction but the correct axis and direction was found (EC: Category 2, 4, and 5)
+\item Never Correct: trials where participants acted on the joystick but never found the correct axis and/or direction (NC: Category 3, 6, and 7)
+\item No response: trials in which participants did not respond (NR: Category 9). 
+\end{itemize}
+Categories 8 and 10 corresponded to the no-movement sham trials and were not used in the analysis.
+
+\subsection{MOTION DETECTION AND PERFORMANCE SUMMARY}
+\label{MOTION_DETECTION_AND_PERFORMANCE_SUMMARY}
+The normalized response count and Reaction Time (RT) per detection performance category were quantified for each axis and speed condition. The normalized response count was the adjusted count per response category, with respect to the given number of trials multiplied by participants; the total trial count per participant was 36, excluding sham trials. The total trial count per participant was adjusted to 36, such that the interpretation of results would be consistent with the experimental design. Participants had fewer total trials than 36 trials because trials that did not follow the experimental design were removed during the data standardization step mentioned in Section \ref{VERIFICATION_OF_SIMULATION_DATASET}. RT was the time that the participant used to find the correct axis and direction. The 95\% confidence interval per axis was calculated to determine which detection performance categories were significant. Detection performance categories above the lower confidence interval were evaluated further. Significant and corresponding detection performance categories were compared for the speed and axis.
+
+\indent The Kolmogorov-Smirnov (KS) test was used to evaluate whether to use a parametric or non-parametric two-sample comparison test for within-axis and across-axis comparisons. All test evaluations resulted in non-parametric distributions; therefore, only non-parametric tests were used. Two non-parametric tests were used to evaluate comparisons: Wilcoxon signed-rank distribution test and Wilcoxon rank-sum distribution test \cite{Foundation_2013_python}. Uneven two-sample non-parametric test data vectors were compared using the Wilcoxon rank-sum test. However, the Wilcoxon signed-rank test required that equal length vectors be compared, thus shorter length vectors were padded with NaN values to preserve the equivalent number of samples with respect to the longer vector and the distribution of the shorter length vector. Statistical p-values are reported using the following standardized significance levels: the Bonferroni required value of 0.0167 for two test comparisons, 0.05 for single test comparisons, and 0.001 for strongly significant one or two test comparisons. A participant detection performance rank score was created to compare overall participant detection performance with perfect performance. The performance rank score was calculated per subject across trials, per experiment, where
+
+\begin{equation}
+Rank~score = 2 \cdot (IC~count) + (EC~count)
+\label{eqn_rank_score}
+\end{equation}
+
+The rank score equation weights were arbitrarily chosen such that the equation formulation was most simplistic; RT was not considered in the rank score because rotational and translational experimental stimulation timings were different and thus non-comparable. IC performance was the desired behavior for the task so a weight of two was given to each IC trial. EC was also desired task behavior because participants were able to eventually find the correct axis and direction, however mistakes were made, thus a weight of one was given to each EC trial. NC and NR performance trials were not the desired task behavior so they were given no credit. Thus a rank score of 72 corresponded with perfect performance, where IC detection was performed for all 36 motion stimuli trials. Finally, the rank score was used to divide participants into three final categories in order to summarize performance with respect to each experiment. Mean and standard deviation of participants' rank score per experiment were calculated, such that participants were divided into best, average, and worst categories if their rank score was greater, within, and lower than one standard deviation from the experimental participant mean respectively.
+
+
+\subsection{CLASSIFICATION MODELS, FEATURE \& LABEL CREATION}
+% Overview : why we selected these models, features, and labels
+
+Six unique types of ML \& DL models were compared using time-series features. Since it is uncertain of how to quantitatively define SD, we create three ground-truth labels defining when SD occurred based on our experimental context. Mean model accuracy is used as a measure of how well each label corresponds to the data, thus allowing for a numerically derived definition of SD; we rank each ground-truth label from most to least appropriate based on highest to lowest overall model accuracy respectively. Finally, unsupervised clustering methods were used to generate SD labels, clustering SD labels were compared with the three ground-truth semi-supervised labels.The intention of this final analysis is to demonstrate the possibility of numerically generating a reliable SD label for real-world aviation joystick data where the occurrence SD is often unknown.
+
+% -------------------
+% Sequential, spatial/parallel, and subspace ML \& DL models were compared using time-series and/or categorical clustering features.
+% -------------------
+Six unique types of modeling architectures were investigated: 
+\begin{enumerate}
+    \item Sequential architecture models including SVM and LSTM,
+    \item Spatial CNN-based architectures including CNN and LSTMCNN,
+    \item Parallel Transformer architecture,
+    \item Subspace architecture including RF,
+    \item Probabilistic architecture including Gaussian Naive Bayes (GNB),
+    \item Basic NN architecture including Multilayer perceptron (MLP).
+\end{enumerate}
+These model architectures were of interest because they each organize the data in a distinctive manner such that temporal, or spatial, or feature space properties are exploited. 
+
+Feature selection was motivated by two factors: investigation of time and/or frequency signal influences on model architecture, and exploitation of human movement science domain knowledge that humans regulate velocity and acceleration to perform position-based motions. As mentioned in subsection \ref{ARTIFICIAL_INTELLIGENCE_METHODS_FOR_HAR}, it is of interest to compare the performance of certain model architectures (sequential, spatial, parallel, subspace) using certain types of feature data (time, frequency, time \& frequency). Specific model architectures are designed to process certain types of feature data, such as sequential models are designed to identify trends in time-based features and CNN-based model are designed to identify spatial features. However, literature has shown that different model architectures can be combined with different types of feature data with similar or better performance \cite{}. Therefore, we investigate all possible combinations of model architecture with respect to feature-type, and list the best to worst feature-types for each model architecture based on model performance.
+
+Regarding the second factor, the HAR field typically uses position-only features. However, the human movement science domain has proven that the brain requires derivative information in order for the body to generate smooth position trajectories \cite{}. Therefore, it was of interest to understand if the additional derivative information improves prediction of human activity, we use position, velocity, and acceleration time-series features in combination as opposed to position-only features. Specifically, we compare model performance using only position trajectories in comparison to position, velocity, and acceleration trajectories, to determine whether the additional derivative information would result in better model performance. 
+
+Only time-series features are used because raw time-series features are typically used in HAR literature; result comparisons can be made if analysis procedures are in alignment with HAR literature. Additionally, time-series features were of interest because evaluation of model performance is clearer, in terms of uniqueness of data points in feature space. In total, 9 and 27 time and frequency features were calculated for position-only and position, velocity, and acceleration constructions, respectively. The four time-series features were :
+\begin{itemize}
+\item time-only: time-series joystick signal in sequential order,
+\item frequency-only: five frequency pattern sublevels of the discrete time wavelet transform using the symlets 5 mother wavelet\cite{Nedorubova_2021_CWT_CNN_HumanActivity},
+\item time \& frequency: flattened short-time fast Fourier transform (fft),
+\item time \& frequency: flattened continuous wavelet transform using the Mexican hat mother wavelet as reported in \cite{Nedorubova_2021_CWT_CNN_HumanActivity},
+\end{itemize}
+
+In addition to the model architecture and feature-type analysis, the ideal quantity of data needed to identify SD was investigated by windowing the time-series data per trial; windowing the data in this manner also allows for sub-activities to be identified. Exploiting the design of LSTM, trial data was divided into eight different timesteps/windows of data such that model performance per timestep could be compared; the timestep with the best model performance per experimental use-case (e.g: speed, axis) was identified for comparison. SD occurs in a cumulative manner, it takes a succession of erroneous events for the occurrence of SD. Thus, knowing the ideal quantity of data needed to identify the occurrence of SD per use-case allows for understanding about the onset of SD, and eventual identification of sub-activities that maybe related to SD.
+
+% -------------------
+% Three semi-supervised labels were tested to quantitatively measure the effectiveness of SD identification via model accuracy, thus allowing for a numerically derived definition of SD. 
+% -------------------
+Three types of ground-truth semi-supervised labels were created for predicting disorientation:
+\begin{itemize}
+\item Lenient: mistakes are allowed to be made thus IC and EC categories were labeled as ‘non-disoriented’ and NC and NR were labeled as disorientation,
+\item Strict: no mistakes are allowed where IC was labeled as not disorientation and EC, NC, and NR were designated as disoriented,
+\item Complex: a multi-label depicting SD via NC and NR responses, mild-SD using EC responses, and non-SD using only IC responses.
+\end{itemize}
+The purpose of testing different labels was to understand how to best define SD from the intrinsic organization of the data; better predicting models using a certain label implies that the data is best structured for that label. We compare our data-driven definition of SD with the current functional definition of SD \cite{Newman_2007_SD}. 
+
+% -------------------
+% Finally, unsupervised clustering methods were used to generate SD labels, clustering SD labels were compared with the three semi-supervised labels. 
+% -------------------
+Finally, Kmeans and gaussian mixture clustering models were used to generate predictive labels for SD. Combinations of position, velocity, and acceleration time-series signals were used to create each predictive label. The predictive labels were compared with the three ground-truth semi-supervised labels, using the rand index score. In real-world applications, data is largely unlabeled, thus knowing which clustering method results in accurate identification of SD is invaluable.
+
+
+\subsection{CLASSIFICATION MODEL EVALUATION}
+Average 5-fold cross validation test prediction accuracy and ROC-AUC measures were used to evaluate ML model performance. Accuracy measured the true positive (TP) and true negative (TN) counts over the total number of samples; a value of 1 and 0 correspond to 100\% and 0\% correct prediction. Accuracy only gives information about how well the model approves data, but not about how well the model rejects data. Therefore, the familiar ROC- AUC measure was used to evaluate both classification acceptance and rejection performance. ROC-AUC is the area under the false positive rate (FPR), shown in equation (\ref{eqn_fpr}), versus the True Positive Rate (TPR), shown in equation (\ref{eqn_tpr}),
+
+\begin{equation}
+Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
+\label{eqn_accuracy}
+\end{equation}
+where FP and FN correspond to false positive and negative counts, respectively. 
+
+\begin{equation}
+FPR = \frac{FP}{FP+TN}
+\label{eqn_fpr}
+\end{equation}
+
+\begin{equation}
+TPR = \frac{TP}{TP+FN}
+\label{eqn_tpr}
+\end{equation}
+
+\noindent An ROC-AUC score of one indicates perfect prediction of all labeled classes, whereas a score of 0.5 or lower indicates that prediction of all labeled classes was poor with chance level performance or lower. ROC-AUC was needed in addition to accuracy to determine if FP values were balanced with TP values, ensuring that the SD model could accurately reject and accept the data \cite{Burkov_2019_ML}.
+
+\indent Finally, feature importance was of interest because each feature contained distinct information about disorientation. It was of interest to understand which feature/s could convey the most informative information about the occurrence of perceptual disorientation. Feature importance was calculated such that each feature was shuffled individually and model accuracy was calculated for each shuffled feature. Unshuffled model prediction accuracy was subtracted with each of the shuffled feature prediction accuracy scores. The change in prediction accuracy for each shuffled feature was ranked, such that the feature with the largest change in prediction accuracy was considered the most important feature. Feature importance was calculated using scikit-learn's permutation importance function, and manually calculated for Tensorflow models. Individual metric comparisons, of the three metrics, were evaluated using the same Wilcoxon signed-rank or rank-sum tests where p < 0.05 and p < 0.001 were considered significant and strongly significant respectively; only non-parametric tests were used because the KS test reported non-parametric distributions.
+
+\subsection{PHYSICAL DISORIENTATION}
+Detection performance categories were related to only the SSQ disorientation sub-scale, not the combined SSQ score, because the task was related to disorientation with respect to motion detection \cite{Kennedy_1993_Simulator}, \cite{Bouchard_2007_SimulatorSickness}. Physical disorientation was monitored before and after the experiment using the SSQ disorientation sub-scale, such that the difference in before and after measures were attributed to the experienced task; SSQ disorientation difference equaled the disorientation score before the experiment minus the score after the experiment.
+
+Negative SSQ disorientation difference meant that the task made the participant disoriented (e.g., they felt better before), and positive SSQ disorientation difference meant that the task rendered the participant less disoriented (e.g., they felt better after). Physical disorientation for accurate and non-accurate motion detection performers were compared, to quantify whether physical disorientation report could also be a marker for SD, like the perceptual joystick. Again, Wilcoxon signed-rank or rank-sum non-parametric distribution tests were used to evaluate comparisons, as the KS test only found non-parametric distributions. The mentioned statistical p-value reporting convention was used.

@@ -1,0 +1,38 @@
+A commonly used definition of spatial disorientation (SD) in aeronautics is "an erroneous sense of one’s position and motion relative to the plane of the earth’s surface". 
+
+SD has a wide range of situations and factors, but mainly it has been studied using reduced experimental contexts such as motion detection experimentation in isolation. 
+
+Because there are many SD use-cases that are studied in isolation in a reduced manner, it is difficult to develop a generalized and fundamental understanding of the occurrence of SD and viable solutions. 
+
+To investigate SD in a generalized manner, a two-part Human Activity Recognition (HAR) study consisting of an in-flight piloting use-case experiment and Machine Learning (ML)/Deep Learning (DL) model prediction was performed. The first part of the study was the creation of a generalized SD perception dataset using whole-body experimental motion detection methods in a naturalistic flight context; participant perceptual joystick response was measured during rotational or translational vestibular stimulation. 
+
+The second part of the study consisted of HAR SD feature, model, and label comparison. 
+
+Human movement science domain knowledge for joystick response derived feature selection was exploited, and time and/or frequency signal contributions for sequential and spatial model architectures were investigated. 
+
+% ------------ Analysis : re-write NOW
+% re-write : ok, it is the timesteps/time-delay  
+% Human behavior was interpreted from DL model parameters.  
+
+% re-write : we wanted to determine if questionnaire responses about physical disorientation correlated with motion detection responses
+A potential HAR SD feature was investigated using statistical analysis, comparing measurement trends of physical disorientation with respect to the motion detection label; the simulator sickness questionnaire (SSQ) disorientation sub-scale was used to quantify physical disorientation. 
+
+
+
+
+% ------------ Results: re-write AFTER doing results analysis ------------
+The perceptual SD dataset was statistically proven to be representative of human motion detection behavior, demonstrating that the simulation environment was sufficient to generate a fidel SD context. DL modeling comparison analysis demonstrated that SD can be accurately predicted. 
+
+(will change ***) Feature quantity (1. compare accuracy and ROC-AUC for all models/conditions for fea=0,1,3,all), 
+model type (new** 1. compare accuracy and ROC-AUC for sequential (SVM, LSTM), spatial/parallel (CNN, LSTMCNN,), subspace, other), 
+models from use-case data (1. compare accuracy and ROC-AUC for axes, speed, and all data), 
+feature type (1. use feature importance to compare which features are more important, 2. compare accuracy and ROC-AUC for position-only versus pos_vel_acc),
+label type (1. compare accuracy and ROC-AUC for each of the 3 semi-supervised labels regardless of condition) significantly influenced prediction accuracy. 
+
+(new ***) Time needed to respond to predict SD
+
+(new ***) Ability to generate a realistic unsupervised label for predicting SD
+
+Finally, no significant relationship between physical disorientation and motion detection was found, indicating that two-sample before and after SSQ questionnaire-based methods are insufficient to uncover correlations with perceptual disorientation; a more frequent physical disorientation measure is needed.
+
+
